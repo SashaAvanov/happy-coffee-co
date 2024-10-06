@@ -9,13 +9,13 @@ const OrderSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
   },
-  takenBy: {
+  completedBy: {
     type: String,
     required: true,
   },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+  customerName: {
+    type: String,
+    required: true, 
   }
 })
 

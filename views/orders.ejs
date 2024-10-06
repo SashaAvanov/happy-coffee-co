@@ -4,9 +4,9 @@
     <ul>
     <% orders.forEach( el => { %>
             <li class='order' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.order %></span>
-                
-                <span> Order taken by: <%= el.takenBy %></span>
+                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.order.toUpperCase() %> for <%= el.customerName %></span>
+
+                <span class='<%= el.completed === true ? '' : 'hidden'%>'> Order completed by: <%= el.completedBy %></span>
 
                 <form action="/orders/deleteOrder/<%= el._id %>?_method=DELETE" method="POST" class="">
                     <button class="del" type="submit">Delete</button>
@@ -15,15 +15,12 @@
             </li>
     <% }) %>    
     </ul>
-
-    <% if (left === 1) { %>
-        <h2><%= left %> order left to make.</h2>
-    <% } else { %>
-        <h2><%= left %> orders left to make.</h2>
-    <% } %>
+    
+    <h2><%= left === 1 ? `${left} order left to make.` : `${left} orders left to make.` %></h2>
 
     <form action="/orders/createOrder" method='POST'>
-        <input type="text" placeholder="Enter Order" name='order'>
+        <input type="text" name="order" placeholder="Enter Order">
+        <input type="text" name="customer" placeholder="Customer Name">
         <input type="submit" value="Create Order">
     </form>
 

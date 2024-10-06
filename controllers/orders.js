@@ -13,7 +13,7 @@ module.exports = {
     },
     createOrder: async (req, res)=>{
         try{
-            await Order.create({order: req.body.order, completed: false, takenBy: req.user.username, userId: req.user.id})
+            await Order.create({order: req.body.order, completed: false, completedBy: "incomplete", customerName: req.body.customer})
             console.log('Order has been added!')
             res.redirect('/orders')
         }catch(err){
@@ -23,7 +23,8 @@ module.exports = {
     markComplete: async (req, res)=>{
         try{
             await Order.findOneAndUpdate({_id:req.body.orderIdFromJSFile},{
-                completed: true
+                completed: true,
+                completedBy: req.user.username
             })
             console.log('Marked Complete')
             res.json('Marked Complete')
@@ -34,7 +35,8 @@ module.exports = {
     markIncomplete: async (req, res)=>{
         try{
             await Order.findOneAndUpdate({_id:req.body.orderIdFromJSFile},{
-                completed: false
+                completed: false,
+                completedBy: "incomplete"
             })
             console.log('Marked Incomplete')
             res.json('Marked Incomplete')

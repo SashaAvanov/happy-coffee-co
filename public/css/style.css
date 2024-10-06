@@ -1,11 +1,14 @@
 h1, 
-.not{
+.not {
     color: rgb(93, 46, 46);
 }
-.completed{
+.completed {
     text-decoration: line-through;
     color: gray;
 }
-.not{
+.not {
     text-decoration: underline;
+}
+.hidden {
+    display: none;
 }
