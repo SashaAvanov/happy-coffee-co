@@ -46,6 +46,11 @@ button {
     color: black;
 }
 
+input[type=submit],
+.del {
+    background-color: rgb(233,233,237);
+}
+
 h1, 
 a,
 .not {
