@@ -1,7 +1,12 @@
 <%- include("partials/header") %>
-<body>
-    <h1>Orders</h1>
-    <ul>
+<body class="container-lrg flex-col items-center justify-between mar-top-5">
+
+    <div class="orders-header flex-col justify-between">
+        <h1>Orders</h1>
+        <h2><%= left === 1 ? `${left} order left to make.` : `${left} orders left to make.` %></h2>
+    </div>
+
+    <ul class="orders flex-col items-start">
     <% orders.forEach( el => { %>
             <li class='order' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.order.toUpperCase() %> for <%= el.customerName %></span>
@@ -15,10 +20,8 @@
             </li>
     <% }) %>    
     </ul>
-    
-    <h2><%= left === 1 ? `${left} order left to make.` : `${left} orders left to make.` %></h2>
 
-    <form action="/orders/createOrder" method='POST'>
+    <form class="orders-form flex-col items-center" action="/orders/createOrder" method='POST'>
         <input type="text" name="order" placeholder="Enter Order">
         <input type="text" name="customer" placeholder="Customer Name">
         <input type="submit" value="Create Order">

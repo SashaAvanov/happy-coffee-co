@@ -1,14 +1,197 @@
+/* Box Model Hack */
+* {
+    box-sizing: border-box;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+    text-align: center;
+    background-color: rgb(219, 191, 176);
+}
+
+html {
+    font-size: 62.5%;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-size: 7rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+a,
+span {
+    font-size: 3rem;
+}
+
+input,
+button,
+.alert {
+    font-size: 2rem;
+}
+
+span,
+input,
+button {
+    color: black;
+}
+
 h1, 
+a,
 .not {
     color: rgb(93, 46, 46);
 }
+
+.alert {
+    color: red;
+    margin-bottom: 1rem;
+}
+
 .completed {
     text-decoration: line-through;
     color: gray;
+    margin-right: 1rem;
+    padding: 0.5rem 0;
 }
+
 .not {
     text-decoration: underline;
 }
+
 .hidden {
     display: none;
+}
+
+a,
+input,
+button {
+    display: block;
+    margin: 1rem 0;
+}
+
+input,
+button {
+    border-radius: 5px;
+    border: 1px solid #eee;
+    padding: 0.3rem 1rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+.orders * {
+    text-align: left;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+body {
+    min-height: 100vh;
+}
+
+.container-sml,
+.container-med {
+    margin-top: 10%;
+}
+
+.mar-top-5 {
+    margin-top: 5%;
+}
+
+.container-sml {
+    min-height: 20vh;
+}
+
+.container-med {
+    min-height: 40vh;
+}
+
+.container-lrg {
+    min-height: 80vh;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-evenly {
+    justify-content: space-evenly;
+}
+
+.orders-header {
+    height: 130px;
+    margin: 0 5%;
+}
+
+.orders-form input {
+    margin: 0.5rem 0;
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+
+@media screen and (max-width: 768px) {
+
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 3rem;
+    }
+    
+    a,
+    span,
+    input,
+    button,
+    .alert {
+        font-size: 2rem;
+    }
+
+
+    .container-sml,
+    .container-med {
+        margin-top: 20%;
+    }
+
+    .completed {
+        display: block;
+    }
+
+    .orders-header {
+        height: 115px;
+    }
+
 }
